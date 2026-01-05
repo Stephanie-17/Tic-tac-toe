@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 export default function Home() {
+	
+
 	return (
 		<>
 			<section className="flex w-full flex-col items-center h-dvh justify-center">
