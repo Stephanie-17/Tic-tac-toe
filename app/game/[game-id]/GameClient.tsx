@@ -15,7 +15,7 @@ const GameClient = ({ gameId, availableSide }: GameClientProps) => {
 		const timer = setTimeout(async () => {
 			const updates =
 				availableSide === "X"
-					? { player_x: "player2",status:"playing" }
+					? { player_x: "player2", status: "playing" }
 					: { player_o: "player2", status: "playing" };
 
 			const { error } = await supabase
@@ -32,15 +32,33 @@ const GameClient = ({ gameId, availableSide }: GameClientProps) => {
 		return () => clearTimeout(timer);
 	}, [availableSide, gameId]);
 	if (showSide)
-		return <div>
-			<h1>You are {availableSide}</h1>
-		</div>;
+		return (
+	<aside className="flex justify-center items-center min-h-dvh">
+		<div className="bg-[#f5007e]  rounded-lg w-82 flex justify-center items-center h-30 shadow-[0_4px_12px_#000]">
+				<h1 className="text-white font-semibold text-2xl ">You are {availableSide}</h1>
+			</div>
+	</aside>
+			
+		);
 	if (error)
-		return <div>
-			<h1>{error}</h1>
-		</div>;
+		return (
+	<aside className="flex justify-center items-center min-h-dvh">
+		  <div className="bg-red-700 ounded-lg w-82 flex justify-center items-center h-30 shadow-[0_4px_12px_#000]">
+				<h1 className="text-white font-semibold text-2xl ">{error}</h1>
+			</div>
+	</aside>
+			
+		);
 
-    return <div>Game starts now 🎮</div>;
+	return (
+		<aside className="flex justify-center items-center min-h-dvh">
+			<div className="bg-[#8A06C7]  rounded-lg w-82 flex justify-center items-center h-30 shadow-[0_4px_12px_#000]">
+				<h2 className="text-white font-semibold text-2xl ">
+					Game starts now 🎮
+				</h2>
+			</div>
+		</aside>
+	);
 };
 
 export default GameClient;

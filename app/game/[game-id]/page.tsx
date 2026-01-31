@@ -9,6 +9,8 @@
 // if there is an error, I'll use a state called showError, to display errors only when there are errors..
 // and if everything is going well and it's successful, I'll start the game
 // 042cbe97
+// when I load the page, I still want the app to know which side I'm on, for both the person creating the game and the person joining, cause if you refresh the page, it'll just say the game is full, which is not what I want, I need local storage, but how would I save both of them and also make use of them especially after loading.
+// it's crazy cause I'm saving two different things for two different playerssss... I'm so losttt
 import { supabase } from "@/lib/supabase";
 import GameClient from "./GameClient";
 import Link from "next/link";

@@ -26,7 +26,8 @@ const CreateGame = () => {
 		const { error } = await supabase.from("games").insert(gameData);
 
 		if (error) {
-			console.error(error);
+			console.log(error.details);
+			console.log(error.hint)
 			return;
 		} else {
 			setPopUp(true);
